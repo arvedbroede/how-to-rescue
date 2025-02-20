@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global/css/globaldesign.css">
+    <link rel="stylesheet" href="../notfallhilfe/css/notruf.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="bilder/fav-icon/htr-favicon-black.png" type="image/x-icon">
+    <script src="../global/js/global.js"></script>
+    <script src="../notfallhilfe/js/notruf_giftnotruf_dropdown.js"></script>
+    <title>Notrufnummern - How-To-Rescue</title>
+</head>
+    
+<body>
+
+    <section class="navbar">
+        <div class="navbar-logo">
+            <a href="../global/index.html"><img src="../global/bilder/logos/htr-high-resolution-logo-black-transparent.png" alt="How To Rescue-Logo"></a>
+        </div>
+        <br>
+        <ul class="nav-links">
+            <li><a href="../global/index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Kategorien</a>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="../notfallhilfe/notruf.html">Notruf</a>
+                    <a href="../notfallhilfe/erste_hilfe.html">Erste Hilfe</a>
+                    <a href="#">Brandschutz</a>
+                    <a href="#">Sonstiges</a>
+                </div>
+            </li>            
+            <li><a href="../global/über-uns.html">Über Uns</a></li>
+            <li><a href="../global/kontakt.html">Kontakt</a></li>
+        </ul>
+    </section>
+
+    <section class="section_notrufnummern">
+            <div class="notruf-kategorie">
+                <h3 class="kategorie-überschrift">Rettungsdienste</h3>
+                <div class="notruf-eintrag">
+                    <span class="notruf-titel">Feuerwehr / Rettungsdienst:</span>
+                    <span class="notruf-nummer"><a href="tel:112">112</a></span>
+                </div>
+                <div class="notruf-eintrag">
+                    <span class="notruf-titel">Polizei:</span>
+                    <span class="notruf-nummer"><a href="tel:110">110</a></span>
+                </div>
+                <div class="notruf-eintrag">
+                    <span class="notruf-titel">Ärztlicher Bereitschaftsdienst:</span>
+                    <span class="notruf-nummer"><a href="tel:110">116117</a></span>
+                </div>
+                <!-- Weitere Notrufnummern hier einfügen -->
+            </div>
+    </section>
+    
+    <section class="section_giftnotrufe">
+        <div class="notruf-kategorie">
+            <h3 class="kategorie-überschrift">Giftnotrufe</h3>
+    
+            <!-- Dropdown für Bundesland -->
+            <div class="giftnotruf-dropdown-container">
+                <select class="notruf-auswahl" id="bundesland-auswahl" title="Bundesland auswählen">
+                    <option value="default" disabled selected>Wählen Sie Ihr Bundesland aus</option>
+                    <option value="Baden-Württemberg">Baden-Württemberg</option>
+                    <option value="Bayern">Bayern</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Brandenburg">Brandenburg</option>
+                    <option value="Bremen">Bremen</option>
+                    <option value="Hamburg">Hamburg</option>
+                    <option value="Hessen">Hessen</option>
+                    <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                    <option value="Niedersachsen">Niedersachsen</option>
+                    <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+                    <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                    <option value="Saarland">Saarland</option>
+                    <option value="Sachsen">Sachsen</option>
+                    <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                    <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                    <option value="Thüringen">Thüringen</option>
+                </select>
+            </div>
+    
+            <!-- Giftnotruf-Ergebnis (anfangs versteckt) -->
+            <div class="giftnotruf-ergebnis">
+                <div class="notrufnummer-anzeige" id="notrufnummer">
+                    <span class="notruf-titel"></span>
+                    <span class="notruf-nummer"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="section_notrufnummer-anzeige">
+        <div class="notrufnummer-anzeige" id="notrufnummer">
+            <span class="notruf-titel"></span>
+            <span class="notruf-nummer"></span>
+        </div>
+    </section>
+            
+    <section class="section_notrufnummern">
+        <div class="notruf-kategorie">
+            <h3 class="kategorie-überschrift">Apothekennotruf</h3>
+            <div class="notruf-eintrag">
+                <span class="notruf-titel">Telefon (bundesweit & kostenlos):</span>
+                <span class="notruf-nummer">0800 - 00 - 22833</span>
+            </div>
+            <div class="notruf-eintrag">
+                <span class="notruf-titel">SMS (69ct/SMS):</span>
+                <span class="notruf-nummer">22833</span>
+            </div>
+            <!-- Weitere Apothekennotrufnummern hier einfügen -->
+        </div>
+        <!-- Weitere Kategorien und Nummern hier einfügen -->
+    </section>
+
+    <section class="section_location_map">
+        <div class="location_data" id="info">
+            <p><strong class="location-title">Ihr Standort:</strong> <span id="coordinates">Wird ermittelt...</span></p>
+            <br>
+            <p><strong class="location-title">Mögliche Adresse:</strong> <span id="address">Wird ermittelt...</span></p>
+            <br><br>
+    
+            <!-- 🚀 Neue stylische Warnbox -->
+            <div class="location-warning">
+                <i class="fas fa-exclamation-triangle"></i> <!-- FontAwesome Icon -->
+                <span>Überprüfen Sie die Korrektheit des Standortes auf der Karte!</span>
+            </div>
+        </div>
+    
+        <div id="map" class="location_map"></div>
+        <script>
+        fetch('http://localhost:3000/maps-api-key')
+        .then(response => response.json())
+        .then(data => {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&callback=initMap`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        })
+        .catch(error => console.error("Fehler beim Laden des API-Keys:", error));
+        </script>
+        <script src="../notfallhilfe/js/location.js"></script>        
+    </section>
+    
+     
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Kontakt -->
+            <div>
+                <h3>Kontakt</h3>
+                <p>Beratung & Service</p>
+                <p>+49 (0) 7732 94 21 888</p>
+                <p>Servicezeiten:</p>
+                <p>Mo-Do: 9:00 - 16:00 Uhr</p>
+                <p>Fr: 9:00 - 12:00 Uhr</p>
+                <p>kontakt@yourwebsite.de</p>
+            </div>
+    
+            <!-- Information -->
+            <div>
+                <h3>Information</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Häufige Fragen</a></li>
+                    <li><a href="#">Zahlung & Versand</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB & Impressum</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media -->
+            <div>
+                <h3>Folge uns</h3>
+                <div class="footer-socials">
+                    <a href="#">Instagram<i class="fab fa-instagram"></i></a>
+                    <a href="#">Facebook<i class="fab fa-facebook"></i></a>
+                    <a href="#">YouTube<i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            &copy; 2025 How-To-Rescue. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+    
+
+</body>
+</html>

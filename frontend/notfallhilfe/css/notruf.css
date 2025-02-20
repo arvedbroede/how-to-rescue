@@ -1,0 +1,171 @@
+/* Allgemeine Layout-Einstellungen */
+section {
+  padding: 40px 20px; /* Reduziertes Padding für kompakteres Layout */
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Notruf-Kategorien */
+.notruf-kategorie {
+  margin-bottom: 30px; /* Weniger Abstand */
+}
+
+/* Kategorie-Überschriften */
+.kategorie-überschrift {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d32f2f;
+  margin-bottom: 10px;
+  text-align: left;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.kategorie-überschrift::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #d32f2f;
+  margin-top: 3px;
+}
+
+/* Notruf-Einträge */
+.notruf-eintrag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 12px 18px; /* Kompaktere Darstellung */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin-bottom: 8px;
+}
+
+/* Hover-Effekt für Notruf-Einträge */
+.notruf-eintrag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Notruf-Titel */
+.notruf-titel {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Notruf-Nummern */
+.notruf-nummer a {
+  font-size: 18px;
+  color: #d32f2f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.notruf-nummer a:hover {
+  text-decoration: underline;
+  color: #b71c1c;
+}
+
+/* Giftnotruf-Dropdown */
+.notruf-auswahl {
+  font-size: 16px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 2px solid #d32f2f;
+  transition: all 0.3s ease;
+}
+
+.notruf-auswahl:hover {
+  border-color: #b71c1c;
+}
+
+/* Hintergrundfarbe und Schatten für die Giftnotruf-Section entfernen */
+.section_giftnotrufe {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/* Falls eine andere Section den Balken verursacht */
+.section_notrufnummer-anzeige {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.giftnotruf-ergebnis {
+  display: none;
+}
+
+
+/* Notrufnummer-Anzeige */
+.section_notrufnummer-anzeige {
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 15px;
+}
+
+.notrufnummer-anzeige {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* Standort-Anzeige */
+.location_data {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 15px;
+}
+
+/* CTA-Button für Notruf */
+.cta-button-notruf {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #d32f2f;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cta-button-notruf:hover {
+  background-color: #b71c1c;
+  transform: translateY(-2px);
+}
+
+/* Karte für Standort */
+.location_map {
+  height: 350px;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Struktur und allgemeine Ausrichtung */
+.section_notrufnummern,
+.section_giftnotrufe,
+.section_notrufnummer-anzeige,
+.section_location_map {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 20px; /* Weniger Abstand zwischen den Sections */
+}

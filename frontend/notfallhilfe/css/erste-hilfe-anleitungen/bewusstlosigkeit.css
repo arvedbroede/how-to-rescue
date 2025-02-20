@@ -1,0 +1,242 @@
+section:nth-of-type(2) {
+    margin-top: 100px; /* Abstand zur Navbar */
+  }
+  
+/* Abfrage Bewusstlosigkeit */
+
+.interactive-reanimation {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 40px;
+    padding: 10px;
+}
+
+.question {
+    margin: 30px auto;
+    padding: 30px;
+    background: #f4f4f4;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 18px;
+    background-color: transparent; /* Hintergrundfarbe entfernen */
+    color: black; /* Textfarbe schwarz */
+    border: 2px solid black; /* Schwarze Umrandung */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05); /* Button etwas vergrößern bei Hover */
+}
+
+button:focus {
+    outline: none; /* Entfernt den Standard-Umriss bei Fokus */
+}
+
+.button_yes{
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 18px;
+    background-color: transparent; /* Hintergrundfarbe entfernen */
+    color: green; /* Textfarbe schwarz */
+    border: 2px solid green; /* Schwarze Umrandung */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button_no{
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 18px;
+    background-color: transparent; /* Hintergrundfarbe entfernen */
+    color: red; /* Textfarbe schwarz */
+    border: 2px solid red; /* Schwarze Umrandung */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+}
+
+a.link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a.link:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Timer-Styles */
+
+#timer-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+#breathing-check-message {
+    font-size: 24px;
+    font-weight: bolder;
+    color: red;
+    margin-top: 10px;
+}
+
+#no-breathing-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#no-breathing-btn:hover {
+    background-color: darkred;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Grundstil für das Popup */
+.popup {
+    display: none; /* Standardmäßig verborgen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    border-radius: 8px;
+    width: auto; /* Automatische Breite */
+    max-width: 90%; /* Verhindert, dass es zu groß wird */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90vh; /* Verhindert, dass es zu hoch wird */
+    overflow-y: auto; /* Scrollbar hinzufügen, falls nötig */
+}
+
+/* Entfernt die Aufzählungspunkte und Abstand von der Liste */
+#popup-text {
+    list-style-type: none; /* Entfernt Aufzählungspunkte */
+    padding: 0;
+    margin: 0;
+}
+
+/* Macht die Bilder größer */
+.step-icon {
+    width: 100%; /* Volle Breite innerhalb des Popups */
+    max-width: 600px; /* Maximale Bildbreite */
+    height: auto; /* Höhe bleibt proportional */
+    margin: 15px 0;
+    display: block; /* Bilder erscheinen untereinander */
+}
+
+/* Container für Bild + Beschreibung */
+.step-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Beschreibung unter den Bildern */
+.step-description {
+    font-size: 16px;
+    color: #444;
+    margin-top: 5px;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.key-measurements {
+    margin-top: 20px;
+}
+
+.measure {
+    margin: 10px 0;
+}
+
+h2, h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Stile für den "Zurück"-Text-Link */
+.back-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.back-link:hover {
+    transform: scale(1.05);
+}

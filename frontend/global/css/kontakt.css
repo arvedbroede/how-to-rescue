@@ -1,0 +1,54 @@
+.email-an {
+  text-align: center;
+  font-size: medium;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #E5BE01;
+}
+
+/* Media Queries für responsives Design */
+
+@media (max-width: 768px) {
+  h2 {
+      font-size: 24px;
+  }
+
+  input,
+  textarea,
+  button {
+      font-size: 14px;
+  }
+}
+
