@@ -1,0 +1,110 @@
+* Global *
+
+- Ordnerstruktur korrigieren bei verlinkungen
+- Scrollanimation JS Script überprüfen
+
+* Erste-Hilfe *
+
+- Such Tags & Linsk ändern
+
+* Index *
+
+- Such Tags & Linsk ändern
+
+
+
+    <section id="schnellretter" class="schnellretter">
+    <div>
+        <div class="search-container">
+            <h1>
+                Schnellretter
+            </h1>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Suchbegriff eingeben...">
+                <button class="search-button">Suchen</button>
+            </div>
+            <div class="search-results"></div>
+        </div>
+    </div>
+    </section>
+
+
+
+        <section id="schnellretter" class="schnellretter">
+    <div class="schnellretter">
+        <div class="search-container">
+            <h1>
+                Schnellretter
+            </h1>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Suchbegriff eingeben...">
+                <button class="search-button">Suchen</button>
+            </div>
+            <div class="search-results"></div>
+        </div>
+    </div>
+    </section>
+        <div>
+            <div class="welcome-section">
+            <a href="emergency_numbers.html" class="cta-button">Notruf</a>
+            <a href="erste_hilfe.html" class="cta-button">Erste-Hilfe</a>
+        </div>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+Schnellzugriff:
+
+/
+
+
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

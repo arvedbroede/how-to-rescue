@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../global/css/globaldesign.css">
+    <link rel="stylesheet" href="../../css/erste-hilfe-anleitungen/bewusstlosigkeit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../bilder/fav-icon/htr-favicon-black.png" type="image/x-icon">
+    <script src="../../../global/js/global.js"></script>
+    <script src="../../js/erste-hilfe-anleitungen/bewusstlosigkeit.js"></script>
+    <title>Notruf - How-To-Rescue</title>
+</head>
+<body>
+
+    <section class="navbar">
+        <div class="navbar-logo">
+           <img src="../../../global/bilder/logos/htr-high-resolution-logo-black-transparent.png" alt="How To Rescue-Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../../../global/index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Kategorien</a>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="../../notruf.html">Notruf</a>
+                    <a href="../../erste_hilfe.html">Erste Hilfe</a>
+                    <a href="#">Sonstiges</a>
+                </div>
+            </li>
+            <li><a href="../../../global/über-uns.html">Über Uns</a></li>
+            <li><a href="../../../global/kontakt.html">Kontakt</a></li>
+        </ul>
+    </section>  
+
+    <section class="interactive-reanimation">
+        <div id="question-container">
+            <!-- Schritt 1: Bewusstlose Person gefunden -->
+            <div class="question" id="step1">
+                <h2>Bewusstlose Person gefunden?</h2>
+                <button class="button_yes" onclick="nextStep('step2')">Ja</button>
+            </div>
+    
+            <!-- Schritt 2: Atmet die Person normal? -->
+            <div class="question hidden" id="step2">
+                <h2>Atmet die Person?</h2>
+                <button class="button_yes" onclick="nextStep('step3a')">Ja</button>
+                <button class="button_no" onclick="nextStep('step3b')">Nein</button>
+                <p class="back-link" onclick="previousStep('step1')">Zurück</p>
+            </div>
+            
+            <!-- Schritt 3a: Stabile Seitenlage -->
+            <div class="question hidden" id="step3a">
+                <h2>Stabile Seitenlage durchführen.</h2>
+                <p>Die Person bleibt in der Seitenlage, bis der Rettungsdiens eintrifft oder Reanimiert werden muss.</p>
+                <button onclick="openPopup('stable-side')">Kurzanleitung anzeigen</button>
+    
+            <!-- Timer und Nachricht -->
+            <div id="timer-container">
+                <p id="timer">2:00</p>
+                <p id="breathing-check-message" class="hidden">Atmung Prüfen!</p>
+            </div>
+
+            <!-- Der "KEINE Atmung" Button ist immer sichtbar und führt zu Schritt 3b -->
+            <button id="no-breathing-btn" onclick="goToStep3b()">Keine Atmung</button>
+                <p class="back-link" onclick="previousStep('step2')">Zurück</p>
+
+            </div>
+            <!-- Schritt 3b: Handelt es sich um ein Kind? -->
+            <div class="question hidden" id="step3b">
+                <h2>Handelt es sich um ein Kind?</h2>
+                <button class="button_yes" onclick="nextStep('step4-child')">Ja</button>
+                <button class="button_no" onclick="nextStep('step4-adult')">Nein</button>
+                <p class="back-link" onclick="previousStep('step2')">Zurück</p>
+            </div>
+    
+            <!-- Schritt 4 (Kind): Reanimation für Kinder -->
+            <div class="question hidden" id="step4-child">
+                <h2>Reanimation bei einem Kind starten.</h2>
+                <p>Führen Sie die Reanimation durch. Hier sind die Schlüsselmaßnahmen:</p>
+                
+                <div class="key-measurements">
+                    <div class="measure">
+                        <h3>1. Notruf (erneut) absetzen</h3>
+                        <button onclick="openPopup('notruf-child')">Kurzanleitung anzeigen</button>
+                    </div>
+                    <div class="measure">
+                        <h3>2. Reanimation</h3>
+                        <button onclick="openPopup('child-breathing')">Kurzanleitung anzeigen</button>
+                    </div>
+                </div>
+                <p class="back-link" onclick="previousStep('step3b')">Zurück</p>
+            </div>
+    
+            <!-- Schritt 4 (Erwachsener): Reanimation für Erwachsene -->
+            <div class="question hidden" id="step4-adult">
+                <h2>Handlungsanweisung</h2>
+                <p>Folgen Sie den Handlungsanweisungen der Reihe nach!</p>
+
+                <div class="key-measurements">
+                    <div class="measure">
+                        <h3>1. Notruf (erneut) absetzen (112)</h3>
+                        <button onclick="openPopup('child-breathing')">Kurzanleitung anzeigen</button>
+                    </div>
+                    <div class="measure">
+                        <h3>2. Reanimation</h3>
+                        <button onclick="openPopup('child-breathing')">Kurzanleitung anzeigen</button>
+                    </div>
+                </div>
+                <p class="back-link" onclick="previousStep('step3b')">Zurück</p>
+            </div>
+        </div>
+        <!-- Popup für Kurzanleitungen -->
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">×</span>
+                <h3 id="popup-title"></h3>
+                <ul id="popup-text"></ul> <!-- Verwende eine ungeordnete Liste für die Kurzanleitung -->
+                <button class="button_yes" onclick="closePopup()">Erledigt</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="text_section" style="margin-top: 100px;">       
+        <h2 class="text_heading">Herz-Lungen-Wiederbelebung</h2>
+        <br><br>
+        <h3> Schritt-für-Schritt-Anleitung</h3>
+        <br><br>
+        <div class="text">
+            <br>
+            <p><strong>Schritt 1: Überprüfen Sie die Sicherheit.</strong></p>
+            <br>
+            <p>
+                Stellen Sie sicher, dass sich sowohl Sie als auch die Person, der Sie helfen wollen, an einem sicheren Ort befinden, um weitere Verletzungen zu vermeiden.
+            </p>
+            <br>
+            <img src="../bilder/erste-hilfe/3897460-980x480c-Erste Hilfe_Warndreieck bei einem Auto.jpg" alt="Erste Hilfe_Warndreieck bei einem Auto" style="height: 190px; width: auto;">
+            <br><br>
+
+
+            <p><strong>Schritt 2: Rufen Sie den Notruf.</strong></p>
+            <br>
+            <p>
+                Wählen Sie die Notrufnummer 112! <br>
+                Sie klare Informationen über die Situation und Ihren Standort.
+            </p>
+            <br>
+            <img src="../bilder/erste-hilfe/5_W_Fragen_Notruf.gif" alt="5 W-Fragen Schema">
+            <br><br>
+
+
+            <p><strong>Schritt 3: Überprüfen Sie die Atmung.</strong></p>
+            <br>
+            <p>Legen Sie die Person auf den Rücken auf eine feste Unterlage. Beugen Sie sich über sie und öffnen Sie den Mund der Person, um nach Anzeichen der Atmung zu suchen. 
+                Schauen, hören und fühlen Sie für Atembewegungen.
+            </p>
+            <br>
+            <img src="../bilder/erste-hilfe/Atmung_pruefen_543x318px.jpg" alt="Atmung prüfen!" style="height: 190px; width: auto;">
+            <br><br>
+
+
+            <p><strong>Schritt 4: Starten Sie die Herzdruckmassage.</strong></p>
+            <br>
+            <p>
+                Wenn die Person nicht atmet oder nur unregelmäßig atmet, beginnen Sie mit der Herzdruckmassage. Legen Sie den Handballen der einen Hand in die Mitte des Brustkorbs 
+                (etwa auf Höhe der Brustwarzen) und die andere Hand darüber. Drücken Sie fest und schnell etwa 5-6 cm tief, lassen Sie den Brustkorb zwischen den Kompressionen 
+                vollständig zurückkommen. Machen Sie dies im Rhythmus von etwa 100-120 Kompressionen pro Minute.
+            </p>
+            <br>
+            <img src="../bilder/erste-hilfe/Wiederbelebung_starten_543x316px.jpg" alt="Wiederbelebung starten!" style="height: 190px; width: auto;">
+            <br><br><br>
+            <p>120bpm - Taktgeber</p>
+            <audio id="meinAudio" controls autoplay>
+                <source src="../audio/120 pbm.mp3" type="audio/mp3">
+                Dein Browser unterstützt den Audioplayer nicht.
+            </audio>
+        
+            <script>
+                window.addEventListener('beforeunload', function() {
+                    var audio = document.getElementById('meinAudio');
+                    audio.removeAttribute('controls');
+                    audio.setAttribute('autoplay', 'true');
+                    audio.setAttribute('loop', 'true');
+                    audio.pause();
+                });
+            </script>
+            <br><br>
+
+
+            <p><strong>Schritt 5: Beatmung.</strong></p>
+            <br>
+            <p>
+                Nach 30 Herzdruckmassagen geben Sie zwei Beatmungen. Beugen Sie den Kopf der Person leicht zurück, heben Sie das Kinn an und öffnen Sie den Mund. 
+                Legen Sie Ihre Lippen um den Mund der Person und blasen Sie so kräftig ein, dass sich der Brustkorb sichtbar hebt.
+            </p>
+            <br>
+            <img src="../bilder/erste-hilfe/Beatmen_543x319px.jpg" alt="Beatmen!" style="height: 190px; width: auto;">
+            <br><br>
+
+
+            <p><strong>Schritt 6: Fortfahren.</strong></p>
+            <p>
+                Setzen Sie die Herzdruckmassage und die Beatmungen im Verhältnis 30:2 fort, bis professionelle Hilfe eintrifft oder die Person wieder zu atmen beginnt.
+            </p>
+            <br>
+            <img src="../bilder/erste-hilfe/Bubbles_beide_1090x591px_Neu.jpg" alt="Fortfahren!" style="height: 190px; width: auto;">
+            <br><br>
+
+            <p><strong>Wichtig: Defibrilator.</strong></p>
+            <p>
+                Falls ein Defibrilator – auch AED genannt – in der Nähe ist, lassen Sie ihn sich bringen und folgen Sie den Anweisungen. Entfernen Sie sich keinesfalls selbst! – bitten Sie Umstehende um Unterstützung.</p>
+            <br>
+            <img src="../bilder/erste-hilfe/Defri_Herz_753x379px.jpg" alt="Defibrilator!" style="height: 190px; width: auto;">
+        </div>
+    </section>    
+   
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Kontakt -->
+            <div>
+                <h3>Kontakt</h3>
+                <p>Beratung & Service</p>
+                <p>+49 (0) 7732 94 21 888</p>
+                <p>Servicezeiten:</p>
+                <p>Mo-Do: 9:00 - 16:00 Uhr</p>
+                <p>Fr: 9:00 - 12:00 Uhr</p>
+                <p>kontakt@yourwebsite.de</p>
+            </div>
+    
+            <!-- Information -->
+            <div>
+                <h3>Information</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Häufige Fragen</a></li>
+                    <li><a href="#">Zahlung & Versand</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB & Impressum</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media -->
+            <div>
+                <h3>Folge uns</h3>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            &copy; 2025 How-To-Rescue. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+    
+</body>
+</html>

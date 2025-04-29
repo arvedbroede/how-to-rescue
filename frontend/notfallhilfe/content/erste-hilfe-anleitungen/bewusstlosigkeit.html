@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../global/css/globaldesign.css">
+    <link rel="stylesheet" href="../../css/erste-hilfe-anleitungen/bewusstlosigkeit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="bilder/fav-icon/htr-favicon-black.png" type="image/x-icon">
+    <script src="../../../global/js/global.js"></script>
+    <script src="../../js/erste-hilfe-anleitungen/bewusstlosigkeit.js"></script>
+    <title>How-To-Rescue - Der Assistent für Ihre Sicherheit</title>
+</head>
+
+<body>
+
+    <section class="navbar">
+        <div class="navbar-logo">
+           <img src="../../../global/bilder/logos/htr-high-resolution-logo-black-transparent.png" alt="How To Rescue-Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../../../global/index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Kategorien</a>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="../../notruf.html">Notruf</a>
+                    <a href="../../erste_hilfe.html">Erste Hilfe</a>
+                    <a href="#">Sonstiges</a>
+                </div>
+            </li>
+            <li><a href="../../../global/über-uns.html">Über Uns</a></li>
+            <li><a href="../../../global/kontakt.html">Kontakt</a></li>
+        </ul>
+    </section>   
+
+    <section class="interactive-reanimation">
+        <div id="question-container">
+            <!-- Schritt 1: Bewusstlose Person gefunden -->
+            <div class="question" id="step1">
+                <h2>Bewusstlose Person gefunden?</h2>
+                <button class="button_yes" onclick="nextStep('step2')">Ja</button>
+            </div>
+    
+            <!-- Schritt 2: Atmet die Person normal? -->
+            <div class="question hidden" id="step2">
+                <h2>Atmet die Person?</h2>
+                <button class="button_yes" onclick="nextStep('step3a')">Ja</button>
+                <button class="button_no" onclick="nextStep('step3b')">Nein</button>
+                <p class="back-link" onclick="previousStep('step1')">Zurück</p>
+            </div>
+            
+            <!-- Schritt 3a: Stabile Seitenlage -->
+            <div class="question hidden" id="step3a">
+                <h2>Stabile Seitenlage durchführen.</h2>
+                <p>Die Person bleibt in der Seitenlage, bis der Rettungsdiens eintrifft oder Reanimiert werden muss.</p>
+                <button onclick="openPopup('stable-side')">Kurzanleitung anzeigen</button>
+    
+            <!-- Timer und Nachricht -->
+            <div id="timer-container">
+                <p id="timer">2:00</p>
+                <p id="breathing-check-message" class="hidden">Atmung Prüfen!</p>
+            </div>
+
+            <!-- Der "KEINE Atmung" Button ist immer sichtbar und führt zu Schritt 3b -->
+            <button id="no-breathing-btn" onclick="goToStep3b()">Keine Atmung</button>
+                <p class="back-link" onclick="previousStep('step2')">Zurück</p>
+
+            </div>
+            <!-- Schritt 3b: Handelt es sich um ein Kind? -->
+            <div class="question hidden" id="step3b">
+                <h2>Handelt es sich um ein Kind?</h2>
+                <button class="button_yes" onclick="nextStep('step4-child')">Ja</button>
+                <button class="button_no" onclick="nextStep('step4-adult')">Nein</button>
+                <p class="back-link" onclick="previousStep('step2')">Zurück</p>
+            </div>
+    
+            <!-- Schritt 4 (Kind): Reanimation für Kinder -->
+            <div class="question hidden" id="step4-child">
+                <h2>Reanimation bei einem Kind starten.</h2>
+                <p>Führen Sie die Reanimation durch. Hier sind die Schlüsselmaßnahmen:</p>
+                
+                <div class="key-measurements">
+                    <div class="measure">
+                        <h3>1. Notruf (erneut) absetzen</h3>
+                        <button onclick="openPopup('notruf-child')">Kurzanleitung anzeigen</button>
+                    </div>
+                    <div class="measure">
+                        <h3>2. Reanimation</h3>
+                        <button onclick="openPopup('child-breathing')">Kurzanleitung anzeigen</button>
+                    </div>
+                </div>
+                <p class="back-link" onclick="previousStep('step3b')">Zurück</p>
+            </div>
+    
+            <!-- Schritt 4 (Erwachsener): Reanimation für Erwachsene -->
+            <div class="question hidden" id="step4-adult">
+                <h2>Handlungsanweisung</h2>
+                <p>Folgen Sie den Handlungsanweisungen der Reihe nach!</p>
+
+                <div class="key-measurements">
+                    <div class="measure">
+                        <h3>1. Notruf (erneut) absetzen (112)</h3>
+                        <button onclick="openPopup('child-breathing')">Kurzanleitung anzeigen</button>
+                    </div>
+                    <div class="measure">
+                        <h3>2. Reanimation</h3>
+                        <button onclick="openPopup('child-breathing')">Kurzanleitung anzeigen</button>
+                    </div>
+                </div>
+                <p class="back-link" onclick="previousStep('step3b')">Zurück</p>
+            </div>
+        </div>
+        <!-- Popup für Kurzanleitungen -->
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">×</span>
+                <h3 id="popup-title"></h3>
+                <ul id="popup-text"></ul> <!-- Verwende eine ungeordnete Liste für die Kurzanleitung -->
+                <button class="button_yes" onclick="closePopup()">Erledigt</button>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Kontakt -->
+            <div>
+                <h3>Kontakt</h3>
+                <p>Beratung & Service</p>
+                <p>+49 (0) 7732 94 21 888</p>
+                <p>Servicezeiten:</p>
+                <p>Mo-Do: 9:00 - 16:00 Uhr</p>
+                <p>Fr: 9:00 - 12:00 Uhr</p>
+                <p>kontakt@yourwebsite.de</p>
+            </div>
+    
+            <!-- Information -->
+            <div>
+                <h3>Information</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Über uns</a></li>
+                    <li><a href="#">Häufige Fragen</a></li>
+                    <li><a href="#">Zahlung & Versand</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">AGB & Impressum</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media -->
+            <div>
+                <h3>Folge uns</h3>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            &copy; 2025 How-To-Rescue. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+    
+
+    </body>
+    </html>
